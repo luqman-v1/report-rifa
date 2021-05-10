@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['namespace' => 'App\Http\Controllers'],function(){
-    Route::get('/', 'report@getForm')->name('form.report');
-    Route::post('/', 'report@store')->name('form.report.store');
-    Route::get('/report', 'report@getReport')->name('report');;
+    Route::get('/', 'Report@getForm')->name('form.report');
+    Route::post('/', 'Report@store')->name('form.report.store');
+    Route::get('/report', 'Report@getReport')->name('report');;
 });
