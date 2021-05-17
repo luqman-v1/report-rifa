@@ -45,8 +45,8 @@
                   @foreach($report_all as $key => $value)
                       <tr>
                           <th scope="row">{{ $count }}</th>
-                          <td>{{ $key }}</td>
-                          <td> <a href="{{ route('report.delete',$key) }}" <button type="button" class="btn btn-danger">Hapus</button></a></td>
+                          <td>{{ $value->tanggal }}</td>
+                          <td> <a href="{{ route('report.delete',$value->tanggal) }}" <button type="button" class="btn btn-danger">Hapus</button></a></td>
                       </tr>
                       @php
                           $count +=1;
