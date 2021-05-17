@@ -15,11 +15,11 @@
             size: 8.28in 11.69in;
             margin-left: 0.97in;
             margin-right: 0.6in;
-            margin-top: 1.01in;
-            margin-bottom: 2.77in
+            margin-top: 0.7in;
+            margin-bottom: 0.65in
         }
 
-        p {
+        p.title {
             margin-top: 0.01in;
             margin-bottom: 0in;
             direction: ltr;
@@ -55,10 +55,10 @@
 <body lang="en-US" link="#000080" vlink="#800000" dir="ltr">
 
     <div title="header">
-        <p>
+        <p class="title">
         <div style="text-align: center;"><b>CATATAN KEGIATAN HARIAN PRAKTIK INDUSTRI</b></div>
         </p>
-        <p>
+        <p class="title">
         <div style="text-align: center;">(FORM.PI01)</div>
         </p>
     </div>
@@ -66,16 +66,16 @@
         <p lang="id" class="western" style="margin-top: 0in">
             <span class="sd-abs-pos" style="position: absolute; top: 7.55in; left: 1.58in; width: 142px"></span><br />
         </p>
-        <p lang="id" class="western" style="margin-top: 0.06in">
+        <p lang="id" class="western title" style="margin-top: 0.06in">
             Hari &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $c->translatedFormat('l') }}
         </p>
-        <p lang="id" class="western" style="margin-top: 0.06in">
+        <p lang="id" class="western title" style="margin-top: 0.06in">
             Tanggal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ $c->isoFormat('D MMMM Y') }}
         </p>
-        <p lang="id" class="western" style="margin-top: 0.06in">
+        <p lang="id" class="western title" style="margin-top: 0.06in">
             Lama Pelaksanaan : {{ $data->lama_pelaksana }} jam praktik
         </p>
-        <p lang="id" class="western" style="margin-top: 0in"><br />
+        <p lang="id" class="western title" style="margin-top: 0in"><br />
         </p>
         <table width="100%" cellpadding="1" cellspacing="0">
             <tr valign="top">
@@ -138,12 +138,11 @@
                 </td>
             </tr>
             @endforeach
-         
                     @if(count($data->kegiatan) <= 10)
                         @php
                             $count = count($data->kegiatan);
                         @endphp
-                        @while($count <= 8)
+                        @while($count <= 9)
                              <tr valign="top">
                                  <td height="16" style="border: 0.5px solid #000000;">
                                      <p lang="id" align="center" style="margin-left: 0.06in; margin-right: 0.17in; margin-top: 0in; orphans: 0; widows: 0">
@@ -181,12 +180,10 @@
 
 
         </table>
-        <p lang="id" class="western" style="margin-top: 0.01in"><br />
+        <p lang="id" style="margin-top: 0.01in"><br />
         </p>
     </div>
-    <table width="547" cellpadding="0" cellspacing="0">
-        <col width="334" />
-        <col width="213" />
+    <table>
         <tr valign="top">
             <td width="334" height="26" style="border: none; padding: 0in">
                 <p lang="id" style="margin-left: 0.14in; margin-top: 0in; orphans: 0; widows: 0">
@@ -235,17 +232,17 @@
             </td>
         </tr>
     </table>
-    <p>Catatan : </p>
-    <p><span>-&nbsp;&nbsp;&nbsp;</span>Uraian kegiatan diketik/ditulis dengan tangan setiap hari kegiatan;</p>
-    <p><span>-&nbsp;&nbsp;&nbsp;</span>
-        <Kuantitas> ditulis jumlah yang dikerjakan, <Hasil> ditulis kualitas pekerjaanya bagaimana (baik sekali, baik,
-                cukup, atau kurang)
-    </p>
-    <p><span>-&nbsp;&nbsp;&nbsp;</span>Jika lebih dari 10 uraian kegiatan, kartu ini boleh digandakan;</p>
-    <p><span>-&nbsp;&nbsp;&nbsp;</span>Kartu ini wajib dilampirkan pada laporan Praktik Industri; </p>
-    <p><span>-&nbsp;&nbsp;&nbsp;</span>Jumlah jam setiap kegiatan dimasukkan pada kolom tanggal pada Matriks Kegiatan
-        Praktik Industri (Form.PI02);</p>
-    </div>
+
+        <p class="title">Catatan : </p>
+        <p class="title"><span>-&nbsp;&nbsp;&nbsp;</span>Uraian kegiatan diketik/ditulis dengan tangan setiap hari kegiatan;</p>
+        <p class="title"><span>-&nbsp;&nbsp;&nbsp;</span>Kuantitas ditulis jumlah yang dikerjakan, <Hasil> ditulis kualitas pekerjaanya bagaimana (baik sekali, baik,
+                    cukup, atau kurang)
+        </p>
+        <p class="title"><span>-&nbsp;&nbsp;&nbsp;</span>Jika lebih dari 10 uraian kegiatan, kartu ini boleh digandakan;</p>
+        <p class="title"><span>-&nbsp;&nbsp;&nbsp;</span>Kartu ini wajib dilampirkan pada laporan Praktik Industri; </p>
+        <p class="title"><span>-&nbsp;&nbsp;&nbsp;</span>Jumlah jam setiap kegiatan dimasukkan pada kolom tanggal pada Matriks Kegiatan
+            Praktik Industri (Form.PI02);</p>
+
 </body>
 
 </html>
