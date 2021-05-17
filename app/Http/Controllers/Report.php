@@ -33,4 +33,18 @@ class Report extends Controller
     {
         return view('report.form');
     }
+
+    public function getReportList(){
+        $report_all = Session::all();
+        unset($report_all['_token']);
+        unset($report_all['_previous']);
+        unset($report_all['_flash']);
+        return view('report.list',compact('report_all'));
+    }
+
+    public function getReportDelete($tanggal = "")
+    {
+        Session::remove($tanggal);
+        return back();
+    }
 }

@@ -15,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'App\Http\Controllers'],function(){
     Route::get('/', 'Report@getForm')->name('form.report');
     Route::post('/', 'Report@store')->name('form.report.store');
-    Route::get('/report', 'Report@getReport')->name('report');;
+    Route::get('/report', 'Report@getReport')->name('report');
+    Route::get('/report/list', 'Report@getReportList')->name('report.list');
+    Route::get('report/delete/{tanggal}', 'Report@getReportDelete')->name('report.delete');
 });

@@ -29,9 +29,13 @@
 <body>
                <div class="container my-5">
                <div class="row">
-                   <div class="col-md-12">
+                   <div class="col-md-6">
                       <a href="{{ route('report') }}"><button type="button" class="btn btn-success">Hasil Report</button></a>
                    </div>
+                     <div class="col-md-6">
+                         <a href="{{ route('report.list') }}"><button type="button" class="btn btn-info">Daftar Report</button></a>
+                     </div>
+
                </div>
                </div>
 
@@ -41,38 +45,33 @@
            <div class="col-md-8">
                <form method="POST" action="{{ route('form.report.store') }}">
                 @csrf
-
                      <div class="form-group fieldGroup">
                          <input class="form-control" autocomplete="off" type="text" id="date" name="tanggal" placeholder="tanggal mulai">
                      </div>
 
                     <div class="form-group fieldGroup">
-                        <input class="form-control" type="number" name="lama_pelaksana" placeholder="lama pelaksana">
+                        <input class="form-control" type="number" autocomplete="off" name="lama_pelaksana" placeholder="lama pelaksana">
                     </div>
 
                    <div class="form-group fieldGroup">
                        <div class="input-group">
-                           <input type="text" name="kegiatan[]" class="form-control" placeholder="Uraian kegiatan" />
-                           <input type="text" name="kuantitas[]" class="form-control" placeholder="Kegiatan" />
-
-                           <input type="text" name="hasil[]" class="form-control" placeholder="Hasil" />
-                           <input type="text" name="keterangan[]" class="form-control" placeholder="Keterangan" />
-
+                           <input type="text" autocomplete="off" name="kegiatan[]" class="form-control" placeholder="Uraian kegiatan" />
+                           <input type="number" autocomplete="off" name="kuantitas[]" class="form-control" placeholder="kuantitas" />
+                           <input type="text" autocomplete="off" name="hasil[]" class="form-control" placeholder="Hasil" />
+                           <input type="text" autocomplete="off" name="keterangan[]" class="form-control" placeholder="Keterangan" />
                            <div class="input-group-addon ml-3">
                                <a href="javascript:void(0)" class="btn btn-success addMore"><i class="fas fa-plus"></i></a>
                            </div>
                        </div>
                    </div>
-
                    <input type="submit" name="submit" class="btn btn-primary btn-sm" value="Submit" />
                </form>
                <div class="form-group fieldGroupCopy" style="display: none;">
                    <div class="input-group">
-                         <input type="text" name="kegiatan[]" class="form-control" placeholder="Uraian kegiatan" />
-                         <input type="text" name="kuantitas[]" class="form-control" placeholder="Kegiatan" />
-
-                         <input type="text" name="hasil[]" class="form-control" placeholder="Hasil" />
-                         <input type="text" name="keterangan[]" class="form-control" placeholder="Keterangan" />
+                         <input type="text" autocomplete="off" name="kegiatan[]" class="form-control" placeholder="Uraian kegiatan" />
+                         <input type="number" autocomplete="off" name="kuantitas[]" class="form-control" placeholder="kuantitas" />
+                         <input type="text" autocomplete="off" name="hasil[]" class="form-control" placeholder="Hasil" />
+                         <input type="text" autocomplete="off" name="keterangan[]" class="form-control" placeholder="Keterangan" />
 
                        <div class="input-group-addon">
                            <a href="javascript:void(0)" class="btn btn-danger remove"><i class="fas fa-trash"></i></a>
