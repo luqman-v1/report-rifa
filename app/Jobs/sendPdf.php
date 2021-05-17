@@ -15,14 +15,18 @@ use Barryvdh\DomPDF\Facade as PDF;
 class sendPdf implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    public $name;
+    public $email;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name = "",$email = "")
     {
-        //
+        $this->name = $name;
+        $this->email = $email;
+        
     }
 
     /**
@@ -41,8 +45,9 @@ class sendPdf implements ShouldQueue
             $pages[] =  view('report.report', compact('data'));
         }
         $pdf = PDF::loadView('report.multiple', compact('pages'));
-        Mail::send('mails.report', [], function ($message) use ($pdf) {
-            $message->to("n.loekman@gmail.com", "luqmanul hakim")
+         $info = ['name' =>$this->name, 'email' =>$this->email];
+        Mail::send('mails.report', [], function ($message) use ($pdf, $info) {
+            $message->to($info['email'], $info['name'])
             ->subject("email")
             ->attachData($pdf->output(), "report.pdf");
         }); 

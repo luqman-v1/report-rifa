@@ -25,12 +25,12 @@ class Report extends Controller
         return back();
     }
 
-    public function getReport(){
+    public function getReportGenerate(Request $request){
         $report_all = ReportModel::get();
-        if (count($report_all) >= 10) {
-            sendPdf::dispatch();
+        // if (count($report_all) >= 10) {
+            sendPdf::dispatch($request->name, $request->email);
             return back();
-        }
+        // }
         $pages = [];
         // setlocale(LC_TIME, 'id_ID');
         Carbon::setLocale('id');
@@ -57,5 +57,9 @@ class Report extends Controller
     {
         ReportModel::where('tanggal',$tanggal)->delete();
         return back();
+    }
+
+    public function getReport(){
+        return view('report.generate');
     }
 }
