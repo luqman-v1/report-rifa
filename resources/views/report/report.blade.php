@@ -174,7 +174,6 @@
                     @php
                     $count += 1;
                     @endphp
-
                         @endwhile
                         @endif
 
@@ -214,9 +213,7 @@
                     <br />
                 </p>
                 <p lang="id" style="margin-left: 0.14in; margin-top: 0in; orphans: 0; widows: 0">
-                            <font size="3" style="font-size: 12pt;margin-left: 0.4in">Rr. Wara Dessiswatami</font>
-                    <br/>
-                    <font>(....................................................)</font>
+                    <font size="3" style="font-size: 12pt;margin-left: 0in">(<b>Rr. Wara Dessiswatami</b>)</font>
                 </p>
             </td>
             <td width="213" style="border: none; padding: 0in">
