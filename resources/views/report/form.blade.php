@@ -43,7 +43,7 @@
      
        <div class="row">
            <div class="col-md-8">
-               <form method="POST" action="{{ route('form.report.store') }}">
+               <form method="POST" autocomplete="off" action="{{ route('form.report.store') }}">
                 @csrf
                      <div class="form-group fieldGroup">
                          <input class="form-control" autocomplete="off" type="text" id="date" name="tanggal" placeholder="tanggal mulai">

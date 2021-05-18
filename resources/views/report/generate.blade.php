@@ -32,7 +32,7 @@
 
         <div class="row">
             <div class="col-md-8">
-                <form method="POST" action="{{ route('report.generate') }}">
+                <form method="POST" autocomplete="off" action="{{ route('report.generate') }}">
                     @csrf
                     <div class="form-group fieldGroup">
                         <input class="form-control" autocomplete="off" type="text" name="nama" placeholder="nama">
