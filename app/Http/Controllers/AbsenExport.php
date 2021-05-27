@@ -10,7 +10,7 @@ use Mail;
 
 class AbsenExport extends Controller implements FromView
 {
-    const MAX_HOUR = 17;
+    const MAX_HOUR = 1705;
     public $data_collection;
 
     public function __construct($data_collection = null)
@@ -47,7 +47,7 @@ class AbsenExport extends Controller implements FromView
     public function removeLate()
     {
         return $this->data_collection->filter(function ($value, $key) {
-            return Carbon::parse($value['date'])->format('H') <= self::MAX_HOUR;
+            return Carbon::parse($value['date'])->format('Hi') <=  self::MAX_HOUR;
         });
     }
 }

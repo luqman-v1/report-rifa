@@ -56,8 +56,8 @@ class AbsenImport extends Controller implements ToCollection
             'fungsi'           => isset($object[8]) ? $object[8] : "",
             'direktorat'       => isset($object[7]) ? $object[7] : "",
             'date'             => isset($object[1]) ? $this->toDateTime($object[1]) : "",
-            'tgl_webinar'      => '',
-            'bulantgl_webinar' => '',
+            'tgl_webinar'      => isset($object[7]) ? $object[9] : "",
+            'bulantgl_webinar' => isset($object[7]) ? $object[10] : "",
             'judul'            => '',
         ];
     }

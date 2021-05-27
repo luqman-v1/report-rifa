@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Jobs\sendPdf;
@@ -10,26 +12,28 @@ use Illuminate\Support\Facades\Session;
 
 class Report extends Controller
 {
-    public function store(Request $request){
-        $report = ReportModel::firstOrCreate(['tanggal'=> $request->tanggal]);
+    public function store(Request $request)
+    {
+        $report = ReportModel::firstOrCreate(['tanggal' => $request->tanggal]);
         $data = [
-                "tanggal"=>$request->tanggal,
-                "lama_pelaksana"=>$request->lama_pelaksana,
-                "kegiatan"=> $request->kegiatan,
-                "kuantitas"=> $request->kuantitas,
-                "hasil"=>$request->hasil,
-                "keterangan"=>$request->keterangan,
+            "tanggal" => $request->tanggal,
+            "lama_pelaksana" => $request->lama_pelaksana,
+            "kegiatan" => $request->kegiatan,
+            "kuantitas" => $request->kuantitas,
+            "hasil" => $request->hasil,
+            "keterangan" => $request->keterangan,
         ];
         $report->payload = json_encode($data);
         $report->save();
         return back();
     }
 
-    public function getReportGenerate(Request $request){
+    public function getReportGenerate(Request $request)
+    {
         $report_all = ReportModel::get();
         // if (count($report_all) >= 10) {
-            sendPdf::dispatch($request->name, $request->email);
-            return back();
+        sendPdf::dispatch($request->name, $request->email);
+        return back();
         // }
         $pages = [];
         // setlocale(LC_TIME, 'id_ID');
@@ -38,9 +42,9 @@ class Report extends Controller
             $data = json_decode($v->payload);
             $pages[] =  view('report.report', compact('data'));
         }
-        $pdf = PDF::loadView('report.multiple',compact('pages'));
-        return $pdf->stream();         
-    //    return view('report.report',compact('data'));
+        $pdf = PDF::loadView('report.multiple', compact('pages'));
+        return $pdf->stream();
+        //    return view('report.report',compact('data'));
     }
 
     public function getForm()
@@ -48,18 +52,20 @@ class Report extends Controller
         return view('report.form');
     }
 
-    public function getReportList(){
+    public function getReportList()
+    {
         $report_all = ReportModel::get();
-        return view('report.list',compact('report_all'));
+        return view('report.list', compact('report_all'));
     }
 
     public function getReportDelete($tanggal = "")
     {
-        ReportModel::where('tanggal',$tanggal)->delete();
+        ReportModel::where('tanggal', $tanggal)->delete();
         return back();
     }
 
-    public function getReport(){
+    public function getReport()
+    {
         return view('report.generate');
     }
 }
