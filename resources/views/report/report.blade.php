@@ -30,35 +30,61 @@
             background: transparent
         }
 
+        p.title1 {
+             margin-top: 0.3in;
+            background: transparent
+        }
+
+        p.title2 {
+            margin-top: 0.01in;
+            background: transparent
+        }
+
+        p.titleNoted {
+            margin-top: -0.001in;
+            margin-bottom: 0in;
+            direction: ltr;
+            line-height: 100%;
+            text-align: left;
+            orphans: 0;
+            widows: 0;
+            background: transparent
+        }
+
         p.western {
             font-family: "Times New Roman", serif;
-            font-size: 12pt;
+            font-size: 11pt;
             so-language: id
         }
 
         p.cjk {
             font-family: "Times New Roman", serif;
-            font-size: 12pt;
+            font-size: 11pt;
             so-language: en-US
         }
 
         p.ctl {
             font-family: "Times New Roman";
-            font-size: 12pt;
+            font-size: 11pt;
             so-language: ar-SA
+        }
+
+        span.line {
+        display: inline-block;
         }
     </style>
 </head>
 @php
-    $c = Carbon\Carbon::parse($data->tanggal . " " . "00:00:00");
+$c = Carbon\Carbon::parse($data->tanggal . " " . "00:00:00");
 @endphp
+
 <body lang="en-US" link="#000080" vlink="#800000" dir="ltr">
 
     <div title="header">
-        <p class="title">
+        <p class="title1">
         <div style="text-align: center;"><b>CATATAN KEGIATAN HARIAN PRAKTIK INDUSTRI</b></div>
         </p>
-        <p class="title">
+        <p class="title2">
         <div style="text-align: center;">(FORM.PI01)</div>
         </p>
     </div>
@@ -80,102 +106,97 @@
         <table width="100%" cellpadding="1" cellspacing="0">
             <tr valign="top">
                 <td style="border: 0.5px solid #000000; padding: 0in 0in">
-                    <p lang="id" align="center"
-                        style="margin-left: 0.06in; margin-right: 0.05in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 12pt">No.</font>
+                    <p lang="id" align="center" style="margin-left: 0.06in; margin-right: 0.05in; margin-top: 0in; orphans: 0; widows: 0">
+                        <font size="3" style="font-size: 11pt">No.</font>
                     </p>
                 </td>
-                <td  style="border: 0.5px solid #000000; padding: 0in 0in">
+                <td style="border: 0.5px solid #000000; padding: 0in 0in">
                     <p lang="id" style="margin-left: 0.87in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 12pt">Uraian Kegiatan</font>
+                        <font size="3" style="font-size: 11pt">Uraian Kegiatan</font>
                     </p>
                 </td>
-                <td  style="border: 0.5px solid #000000; padding: 0in 0in">
+                <td style="border: 0.5px solid #000000; padding: 0in 0in">
                     <p lang="id" style="margin-left: 0.25in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 12pt">Kuantitas</font>
+                        <font size="3" style="font-size: 11pt">Kuantitas</font>
                     </p>
                 </td>
-                <td  style="border: 0.5px solid #000000; padding: 0in 0in">
+                <td style="border: 0.5px solid #000000; padding: 0in 0in">
                     <p lang="id" style="margin-left: 0.21in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 12pt">Hasil</font>
+                        <font size="3" style="font-size: 11pt">Hasil</font>
                     </p>
                 </td>
                 <td style="border: 0.5px solid #000000; padding: 0in 0in">
                     <p lang="id" style="margin-left: 0.27in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 12pt">Keterangan</font>
+                        <font size="3" style="font-size: 11pt">Keterangan</font>
                     </p>
                 </td>
             </tr>
-           
+
             @foreach($data->kegiatan as $key => $v)
             <tr valign="top">
                 <td height="16" style="border: 0.5px solid #000000;">
-                    <p lang="id" align="center"
-                        style="margin-left: 0.06in; margin-right: 0.17in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 12pt">{{ (int)$key+1 }}.</font>
+                    <p lang="id" align="center" style="margin-left: 0.06in; margin-right: 0.17in; margin-top: 0in; orphans: 0; widows: 0">
+                        <font size="3" style="font-size: 11pt">{{ (int)$key+1 }}.</font>
                     </p>
                 </td>
                 <td style="border: 0.5px solid #000000;">
                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 12pt">{{ $v }}</font>
+                        <font size="3" style="font-size: 11pt">{{ $v }}</font>
 
                     </p>
                 </td>
                 <td style="border: 0.5px solid #000000;">
                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 12pt">{{ $data->kuantitas[$key] }}</font>
+                        <font size="3" style="font-size: 11pt">{{ $data->kuantitas[$key] }}</font>
                     </p>
                 </td>
                 <td style="border: 0.5px solid #000000;">
                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 12pt">{{ $data->hasil[$key] }}</font>
+                        <font size="3" style="font-size: 11pt">{{ $data->hasil[$key] }}</font>
                     </p>
                 </td>
                 <td style="border: 0.5px solid #000000;">
                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 12pt">{{ $data->keterangan[$key] }}</font>
+                        <font size="3" style="font-size: 11pt">{{ $data->keterangan[$key] }}</font>
                     </p>
                 </td>
             </tr>
             @endforeach
-                    @if(count($data->kegiatan) <= 10)
-                        @php
-                            $count = count($data->kegiatan);
-                        @endphp
-                        @while($count <= 9)
-                             <tr valign="top">
-                                 <td height="16" style="border: 0.5px solid #000000;">
-                                     <p lang="id" align="center" style="margin-left: 0.06in; margin-right: 0.17in; margin-top: 0in; orphans: 0; widows: 0">
-                                         <font size="3" style="font-size: 12pt">{{ $count+1 }}.</font>
-                                     </p>
-                                 </td>
-                                 <td style="border: 0.5px solid #000000;">
-                                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                                         <font size="3" style="font-size: 12pt"></font>
+            @if(count($data->kegiatan) <= 10) @php $count=count($data->kegiatan);
+                @endphp
+                @while($count <= 9) <tr valign="top">
+                    <td height="16" style="border: 0.5px solid #000000;">
+                        <p lang="id" align="center" style="margin-left: 0.06in; margin-right: 0.17in; margin-top: 0in; orphans: 0; widows: 0">
+                            <font size="3" style="font-size: 11pt">{{ $count+1 }}.</font>
+                        </p>
+                    </td>
+                    <td style="border: 0.5px solid #000000;">
+                        <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
+                            <font size="3" style="font-size: 11pt"></font>
 
-                                     </p>
-                                 </td>
-                                 <td style="border: 0.5px solid #000000;">
-                                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                                         <font size="3" style="font-size: 12pt"></font>
-                                     </p>
-                                 </td>
-                                 <td style="border: 0.5px solid #000000;">
-                                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                                         <font size="3" style="font-size: 12pt"></font>
-                                     </p>
-                                 </td>
-                                 <td style="border: 0.5px solid #000000;">
-                                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                                         <font size="3" style="font-size: 12pt"></font>
-                                     </p>
-                                 </td>
-                             </tr>
+                        </p>
+                    </td>
+                    <td style="border: 0.5px solid #000000;">
+                        <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
+                            <font size="3" style="font-size: 11pt"></font>
+                        </p>
+                    </td>
+                    <td style="border: 0.5px solid #000000;">
+                        <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
+                            <font size="3" style="font-size: 11pt"></font>
+                        </p>
+                    </td>
+                    <td style="border: 0.5px solid #000000;">
+                        <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
+                            <font size="3" style="font-size: 11pt"></font>
+                        </p>
+                    </td>
+                    </tr>
                     @php
                     $count += 1;
                     @endphp
-                        @endwhile
-                        @endif
+                    @endwhile
+                    @endif
 
 
         </table>
@@ -184,36 +205,31 @@
     </div>
     <table>
         <tr valign="top">
-            <td width="334" height="26" style="border: none; padding: 0in">
+            <td width="334" height="10" style="border: none; padding: 0in">
                 <p lang="id" style="margin-left: 0.14in; margin-top: 0in; orphans: 0; widows: 0">
-                    <font size="3" style="font-size: 12pt">Mengetahui,</font>
-                </p>
-            </td>
-            <td width="213" style="border: none; padding: 0in">
-                <p lang="id" style="margin-top: 0in; orphans: 0; widows: 0">
-                    <br />
+                    <font size="3" style="font-size: 11pt">Mengetahui,</font>
                 </p>
             </td>
         </tr>
         <tr valign="top">
             <td width="334" height="71" style="border: none; padding: 0in">
                 <p lang="id" style="margin-left: 0.14in; margin-top: 0.06in; orphans: 0; widows: 0">
-                    <font size="3" style="font-size: 12pt">Pembimbing Industri</font>
+                    <font size="3" style="font-size: 11pt">Pembimbing Industri</font>
                 </p>
             </td>
             <td width="213" style="border: none; padding: 0in">
                 <p lang="id" style="margin-left: -0.50in; margin-top: 0.06in; orphans: 0; widows: 0">
-                    <font size="3" style="font-size: 12pt">Yang Membuat,</font>
+                    <font size="3" style="font-size: 11pt">Yang Membuat,</font>
                 </p>
             </td>
         </tr>
         <tr valign="top">
-            <td width="334" height="65" style="border: none; padding: 0in">
+            <td width="334" height="40" style="border: none; padding: 0in">
                 <p lang="id" style="margin-top: 0.01in; orphans: 0; widows: 0">
                     <br />
                 </p>
-                <p lang="id" style="margin-left: 0.14in; margin-top: 0in; orphans: 0; widows: 0">
-                    <font size="3" style="font-size: 12pt;margin-left: 0in">(<b>Rr. Wara Dessiswatami</b>)</font>
+                <p lang="id" style="margin-left: 0.14in; margin-top: -0.5in; orphans: 0; widows: 0">
+                    <font size="3" style="font-size: 11pt;margin-left: 0in">(<b>Rr. Wara Dessiswatami</b>)</font>
                 </p>
             </td>
             <td width="213" style="border: none; padding: 0in">
@@ -223,23 +239,26 @@
                 </p>
                 <p lang="id" style="margin-top: 0in; orphans: 0; widows: 0"><br />
                 </p>
-                <p lang="id" style="margin-left: -0.50in; margin-top: 0in; orphans: 0; widows: 0">
-                    <font size="3" style="font-size: 12pt">(<b>Rifa Muthia</b>)</font>
+                <p lang="id" style="margin-left: -0.50in; margin-top: -0.5in; orphans: 0; widows: 0">
+                    <font size="3" style="font-size: 11pt">(<b>Rifa Muthia</b>)</font>
                 </p>
             </td>
         </tr>
     </table>
 
-        <p class="title">Catatan : </p>
-        <p class="title"><span>-&nbsp;&nbsp;&nbsp;</span>Uraian kegiatan diketik/ditulis dengan tangan setiap hari kegiatan;</p>
-        <p class="title"><span>-&nbsp;&nbsp;&nbsp;</span>Kuantitas ditulis jumlah yang dikerjakan, <Hasil> ditulis kualitas pekerjaanya bagaimana (baik sekali, baik,
-                    cukup, atau kurang)
-        </p>
-        <p class="title"><span>-&nbsp;&nbsp;&nbsp;</span>Jika lebih dari 10 uraian kegiatan, kartu ini boleh digandakan;</p>
-        <p class="title"><span>-&nbsp;&nbsp;&nbsp;</span>Kartu ini wajib dilampirkan pada laporan Praktik Industri; </p>
-        <p class="title"><span>-&nbsp;&nbsp;&nbsp;</span>Jumlah jam setiap kegiatan dimasukkan pada kolom tanggal pada Matriks Kegiatan
-            Praktik Industri (Form.PI02);</p>
+    <p class="titleNoted">Catatan : </p>
+    <p class="titleNoted"><span>-&nbsp;&nbsp;&nbsp;</span>Uraian kegiatan diketik/ditulis dengan tangan setiap hari kegiatan;</p>
+    <p class="titleNoted"><span>-&nbsp;&nbsp;&nbsp;</span>Kuantitas ditulis jumlah yang dikerjakan, <Hasil> ditulis kualitas pekerjaanya bagaimana (baik sekali, baik,
+            cukup, atau kurang)
+    </p>
+    <p class="titleNoted"><span>-&nbsp;&nbsp;&nbsp;</span>Jika lebih dari 10 uraian kegiatan, kartu ini boleh digandakan;</p>
+    <p class="titleNoted"><span>-&nbsp;&nbsp;&nbsp;</span>Kartu ini wajib dilampirkan pada laporan Praktik Industri; </p>
+    <p class="titleNoted"><span>-&nbsp;&nbsp;&nbsp;</span>Jumlah jam setiap kegiatan dimasukkan pada kolom tanggal pada Matriks Kegiatan
+        Praktik Industri (Form.PI02);</p>
 
+        <p>
+         <span class="line"></span>
+        </p>
 </body>
 
 </html>

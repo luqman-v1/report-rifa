@@ -41,7 +41,7 @@ class AbsenExport extends Controller implements FromView
 
     public function removeDuplicate()
     {
-        return $this->data_collection->unique('nopek');
+        return $this->data_collection->unique('nopek')->all();
     }
 
     public function removeLate()
