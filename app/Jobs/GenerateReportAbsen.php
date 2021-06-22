@@ -40,7 +40,7 @@ class GenerateReportAbsen implements ShouldQueue
     {
         $absenImport = new AbsenImport;
         ExcelMatt::import($absenImport, $this->location_path);
-
+        
         $AbsenExport = new AbsenExport;
         $AbsenExport->export($absenImport->data_rows, $this->name, $this->email);
     }

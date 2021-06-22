@@ -38,7 +38,9 @@ class AbsenImport extends Controller implements ToCollection
     {
         foreach ($rows as $key => $row) {
             if ($key > 0) {
-                $this->data_rows[] = $this->mapping($row);
+                if(isset($row[6]) && $row[6] != ""){
+                    $this->data_rows[] = $this->mapping($row);
+                }
             }
         }
     }

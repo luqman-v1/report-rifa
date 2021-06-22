@@ -20,8 +20,9 @@ class AbsenExport extends Controller implements FromView
 
     public function view(): View
     {
-        $this->removeDuplicate();
-        $datas = $this->removeLate();
+        // dd(count($this->removeDuplicate()));
+        $datas = $this->removeDuplicate();
+        // $datas = $this->removeLate();
         return view('excel.absen', compact('datas'));
     }
 
@@ -41,7 +42,20 @@ class AbsenExport extends Controller implements FromView
 
     public function removeDuplicate()
     {
-        return $this->data_collection->unique('nopek')->all();
+        //124547
+        // $resul = [];
+        // foreach ($this->data_collection as $data){
+        //     $resul[ (string)$data['nopek']] = $data;
+        // }
+        //  return collect($resul);
+        $d = $this->data_collection;
+        // dump($d->where('nopek', 124547));
+        $d =  $d->unique(function ($q){
+            return $q['nopek'];
+        });
+        // dd($d->where('nopek', 124547));
+        return $d;
+
     }
 
     public function removeLate()
