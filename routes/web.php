@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\QuizImport;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+Route::get('/aaa', function () {
+    $absenImport = new QuizImport;
+    Excel::import($absenImport, public_path('input.xlsx'));
+    $rows    = collect($absenImport->data_rows)->groupBy('nopek')->take(10)->all();
+    $headers = $absenImport->data_header;
+    return view('excel.quiz', compact('rows', 'headers'));
+});
+
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
+    Route::get('/excel/quiz', 'QuizImport@index');
+    Route::post('/excel/quiz/store', 'QuizImport@store')->name('excel.quiz.store');
     Route::get('/excel', 'AbsenImport@index');
     Route::post('/excel', 'AbsenImport@store')->name('excel.store');
     Route::get('/', 'Report@getForm')->name('form.report');

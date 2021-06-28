@@ -22,7 +22,7 @@ class AbsenExport extends Controller implements FromView
     {
         // dd(count($this->removeDuplicate()));
         $datas = $this->removeDuplicate();
-        // $datas = $this->removeLate();
+        $datas = $this->removeLate($datas);
         return view('excel.absen', compact('datas'));
     }
 
@@ -42,26 +42,18 @@ class AbsenExport extends Controller implements FromView
 
     public function removeDuplicate()
     {
-        //124547
-        // $resul = [];
-        // foreach ($this->data_collection as $data){
-        //     $resul[ (string)$data['nopek']] = $data;
-        // }
-        //  return collect($resul);
         $d = $this->data_collection;
-        // dump($d->where('nopek', 124547));
-        $d =  $d->unique(function ($q){
+        $d = $d->unique(function ($q) {
             return $q['nopek'];
         });
-        // dd($d->where('nopek', 124547));
         return $d;
 
     }
 
-    public function removeLate()
+    public function removeLate($data)
     {
-        return $this->data_collection->filter(function ($value, $key) {
-            return Carbon::parse($value['date'])->format('Hi') <=  self::MAX_HOUR;
+        return $data->filter(function ($value, $key) {
+            return Carbon::parse($value['date'])->format('Hi') <= self::MAX_HOUR;
         });
     }
 }
