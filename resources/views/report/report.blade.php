@@ -136,28 +136,28 @@ $c = Carbon\Carbon::parse($data->tanggal . " " . "00:00:00");
             <tr valign="top">
                 <td height="16" style="border: 0.5px solid #000000;">
                     <p lang="id" align="center" style="margin-left: 0.06in; margin-right: 0.17in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 11pt">{{ (int)$key+1 }}.</font>
+                        <font style="font-size: 10pt">{{ (int)$key+1 }}.</font>
                     </p>
                 </td>
                 <td style="border: 0.5px solid #000000;">
                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 11pt">{{ $v }}</font>
+                        <font style="font-size: 10pt">{{ $v }}</font>
 
                     </p>
                 </td>
                 <td style="border: 0.5px solid #000000;">
                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 11pt">{{ $data->kuantitas[$key] }}</font>
+                        <font style="font-size: 10pt">{{ $data->kuantitas[$key] }}</font>
                     </p>
                 </td>
                 <td style="border: 0.5px solid #000000;">
                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 11pt">{{ $data->hasil[$key] }}</font>
+                        <font style="font-size: 10pt">{{ $data->hasil[$key] }}</font>
                     </p>
                 </td>
                 <td style="border: 0.5px solid #000000;">
                     <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                        <font size="3" style="font-size: 11pt">{{ $data->keterangan[$key] }}</font>
+                        <font style="font-size: 10pt">{{ $data->keterangan[$key] }}</font>
                     </p>
                 </td>
             </tr>
@@ -167,28 +167,28 @@ $c = Carbon\Carbon::parse($data->tanggal . " " . "00:00:00");
                 @while($count <= 9) <tr valign="top">
                     <td height="16" style="border: 0.5px solid #000000;">
                         <p lang="id" align="center" style="margin-left: 0.06in; margin-right: 0.17in; margin-top: 0in; orphans: 0; widows: 0">
-                            <font size="3" style="font-size: 11pt">{{ $count+1 }}.</font>
+                            <font style="font-size: 10pt">{{ $count+1 }}.</font>
                         </p>
                     </td>
                     <td style="border: 0.5px solid #000000;">
                         <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                            <font size="3" style="font-size: 11pt"></font>
+                            <font style="font-size: 10pt"></font>
 
                         </p>
                     </td>
                     <td style="border: 0.5px solid #000000;">
                         <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                            <font size="3" style="font-size: 11pt"></font>
+                            <font style="font-size: 10pt"></font>
                         </p>
                     </td>
                     <td style="border: 0.5px solid #000000;">
                         <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                            <font size="3" style="font-size: 11pt"></font>
+                            <font style="font-size: 10pt"></font>
                         </p>
                     </td>
                     <td style="border: 0.5px solid #000000;">
                         <p lang="id" style="margin-left: 0.04in; margin-top: 0in; orphans: 0; widows: 0">
-                            <font size="3" style="font-size: 11pt"></font>
+                            <font style="font-size: 10pt"></font>
                         </p>
                     </td>
                     </tr>
