@@ -15,9 +15,12 @@
     <tbody>
       @foreach($rows as $row)
         @php
-      $row = $row->sortByDesc('sum_nilai')->take(1);
+      $row = $row->sortByDesc('sum_nilai')->unique('tgl_webinar');
       @endphp
       @foreach($row as $r)
+      @php
+      // dd($r);
+      @endphp
        <tr>
       @foreach($r as $k => $v)
       @php

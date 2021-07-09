@@ -52,15 +52,18 @@ class AbsenImport extends Controller implements ToCollection
 
     public function mapping($object): array
     {
+        $nopek       = isset($object[6]) ? $object[6] : "";
+        $tgl_webinar = isset($object[7]) ? $object[9] : "";
         return [
-            'nopek'            => isset($object[6]) ? $object[6] : "",
-            'nama'             => isset($object[5]) ? $object[5] : "",
-            'fungsi'           => isset($object[8]) ? $object[8] : "",
-            'direktorat'       => isset($object[7]) ? $object[7] : "",
-            'date'             => isset($object[1]) ? $this->toDateTime($object[1]) : "",
-            'tgl_webinar'      => isset($object[7]) ? $object[9] : "",
-            'bulantgl_webinar' => isset($object[7]) ? $object[10] : "",
-            'judul'            => '',
+            'nopek'             => $nopek,
+            'nama'              => isset($object[5]) ? $object[5] : "",
+            'fungsi'            => isset($object[8]) ? $object[8] : "",
+            'direktorat'        => isset($object[7]) ? $object[7] : "",
+            'date'              => isset($object[1]) ? $this->toDateTime($object[1]) : "",
+            'tgl_webinar'       => $tgl_webinar,
+            'bulantgl_webinar'  => isset($object[7]) ? $object[10] : "",
+            'judul'             => '',
+            'nopek_tgl_webinar' => $nopek . '_' . $tgl_webinar,
         ];
     }
 }
