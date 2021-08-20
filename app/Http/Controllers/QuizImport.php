@@ -34,6 +34,19 @@ class QuizImport extends Controller implements ToCollection
         Storage::disk('public')->put($filename, file_get_contents($file->getRealPath()));
         return storage_path('app/public/') . $filename;
     }
+    public function isDate($value)
+    {
+        if (!$value) {
+            return false;
+        }
+
+        try {
+            new \DateTime($value);
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
 
     public function collection($rows)
     {
@@ -56,13 +69,22 @@ class QuizImport extends Controller implements ToCollection
         $remove   = [' ', '"    '];
         $new_data = [];
         foreach ($this->data_header as $k => $v) {
-            $new_data[str_replace($remove, "", trim($v))] = $data[$k];
+            $data_map = $data[$k];
+            $key_name = str_replace($remove, "", trim($v));
+            if ($key_name == 'waktu_mulai') {
+                $new_data['tanggal_webbinar'] = $this->toDateTime($data[$k], "Y-m-d");
+            }
+            $new_data[$key_name] = $data_map;
         }
         return $data_rows[] = $new_data;
     }
-    public function toDateTime(string $value)
+    public function toDateTime(string $value, string $format = "")
     {
-        return Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value))->format('Y-m-d H:i:s');
+        $date = Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value));
+        if ($format == "") {
+            $format = 'Y-m-d H:i:s';
+        }
+        return $date->format($format);
     }
 
 }

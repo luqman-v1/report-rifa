@@ -27,7 +27,9 @@
     <!--===============================================================================================-->
 </head>
 <body>
+
                <div class="container my-5">
+                <h2>Form Input CKH</h2>
                <div class="row">
                    <div class="col-md-6">
                       <a href="{{ route('report') }}"><button type="button" class="btn btn-success">Hasil Report</button></a>
