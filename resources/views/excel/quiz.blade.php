@@ -24,11 +24,11 @@
        <tr>
       @foreach($r as $k => $v)
       @php
-        if($k == 'waktu_mulai'){
-          $v = \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($v))->format('m-d-Y H:i:s');
+        if($k == 'tanggal_webbinar'){
+          continue; 
         }
 
-        if($k == 'waktu_selesai'){
+        if($k == 'waktu_mulai' || $k == 'waktu_selesai'){
           $v = \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($v))->format('m-d-Y H:i:s');
         }
       @endphp
