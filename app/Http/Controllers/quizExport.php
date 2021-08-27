@@ -31,6 +31,7 @@ class QuizExport extends Controller implements FromView
         $attach = Excel::download(new QuizExport($data_header, $data_rows), 'quiz.xlsx')->getFile();
         $info   = ['name' => $name, 'email' => $email];
 
+        //tes
         Mail::send('mails.report', [], function ($message) use ($attach, $info, $filename) {
             $message->to($info['email'], $info['name'])
                 ->subject("email")
