@@ -15,7 +15,7 @@
     <tbody>
       @foreach($rows as $row)
         @php
-      $row = $row->sortByDesc('sum_nilai')->unique('tanggal_webbinar');
+      $row = $row->sortByDesc('sum_nilai')->unique('tgl_webinar');
       @endphp
       @foreach($row as $r)
       @php
